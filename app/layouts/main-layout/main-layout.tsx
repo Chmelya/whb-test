@@ -1,12 +1,8 @@
-import React, { type ReactNode } from 'react';
+import { Outlet } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Container, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-interface MainLayoutProps {
-	children: ReactNode;
-}
-
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayout = () => {
 	return (
 		<div className='min-h-screen flex flex-col'>
 			<AppBar position='static' className='shadow-sm'>
@@ -30,26 +26,18 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 						</Typography>
 						<Typography
 							component={Link}
-							to='/about'
+							to='/posts'
 							color='inherit'
 							sx={{ textDecoration: 'none' }}
 						>
-							About
-						</Typography>
-						<Typography
-							component={Link}
-							to='/users'
-							color='inherit'
-							sx={{ textDecoration: 'none' }}
-						>
-							Users
+							Posts
 						</Typography>
 					</Box>
 				</Toolbar>
 			</AppBar>
 
 			<Container maxWidth='lg' className='flex-grow py-6'>
-				{children}
+				<Outlet />
 			</Container>
 
 			<footer className='bg-gray-100 py-4 mt-auto'>
