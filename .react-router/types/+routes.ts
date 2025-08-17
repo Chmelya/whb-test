@@ -29,8 +29,8 @@ type RouteFiles = {
     id: "layouts/main-layout/main-layout";
     page: "/";
   };
-  "./pages/main-pages/main-page.tsx": {
-    id: "pages/main-pages/main-page";
+  "./pages/main-page/main-page.tsx": {
+    id: "pages/main-page/main-page";
     page: "/";
   };
   "./pages/not-found/not-found.tsx": {
