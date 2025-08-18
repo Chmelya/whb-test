@@ -9,6 +9,10 @@ export default [
 	layout('./layouts/main-layout/main-layout.tsx', [
 		index('./pages/main-page/main-page.tsx'),
 		route('posts', './pages/posts-list-page/posts-list-page.tsx'),
+		route(
+			'posts/:postId/comments',
+			'./pages/post-comments-page/post-comments-page.tsx'
+		),
 		route('users', './pages/users-list-page/users-list-page.tsx'),
 		route('users/:userId', './pages/user-info-page/user-info-page.tsx'),
 	]),

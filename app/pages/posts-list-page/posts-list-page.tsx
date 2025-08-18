@@ -11,8 +11,13 @@ import {
 	TextField,
 	Pagination,
 	Stack,
+	Button,
+	CardActions,
 } from '@mui/material';
 import { usePostsQuery } from '../../services/posts/post-service.queries';
+import { Link } from 'react-router-dom';
+import CommentIcon from '@mui/icons-material/Comment';
+import { ROUTES } from '../../routes/paths';
 
 const PostsListPage = () => {
 	const [page, setPage] = useState(1);
@@ -58,7 +63,7 @@ const PostsListPage = () => {
 
 			<TextField
 				fullWidth
-				label='Search'
+				label='Search posts'
 				variant='outlined'
 				value={searchTerm}
 				onChange={(e) => {
@@ -82,6 +87,16 @@ const PostsListPage = () => {
 								{post.body}
 							</Typography>
 						</CardContent>
+						<CardActions sx={{ justifyContent: 'flex-end' }}>
+							<Button
+								component={Link}
+								to={ROUTES.getComments(post.id)}
+								startIcon={<CommentIcon />}
+								size='small'
+							>
+								View Comments
+							</Button>
+						</CardActions>
 					</Card>
 				))}
 			</Stack>

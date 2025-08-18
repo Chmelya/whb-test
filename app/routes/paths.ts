@@ -1,8 +1,11 @@
+//TODO separate routes  to api and local
 export const ROUTES = {
 	main: '/',
 	signIn: '/signIn',
 	signUp: '/signUp',
 	posts: '/posts',
 	users: '/users',
-	userInfo: (userId: number) => `/users/${userId}`,
+
+	getUserInfo: (userId: number) => `/users/${userId}`,
+	getComments: (postId: number) => `/posts/${postId}/comments`,
 };

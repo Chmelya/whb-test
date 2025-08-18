@@ -67,7 +67,7 @@ const UsersListPage = () => {
 							key={user.id}
 							divider
 							component={Link}
-							to={ROUTES.userInfo(user.id)}
+							to={ROUTES.getUserInfo(user.id)}
 							sx={{
 								textDecoration: 'none',
 								color: 'inherit',
