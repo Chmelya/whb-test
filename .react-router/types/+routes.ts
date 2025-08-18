@@ -19,6 +19,11 @@ type Pages = {
   "/users": {
     params: {};
   };
+  "/users/:userId": {
+    params: {
+      "userId": string;
+    };
+  };
   "/*": {
     params: {
       "*": string;
@@ -29,11 +34,11 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/posts" | "/users" | "/*";
+    page: "/" | "/posts" | "/users" | "/users/:userId" | "/*";
   };
   "./layouts/main-layout/main-layout.tsx": {
     id: "layouts/main-layout/main-layout";
-    page: "/" | "/posts" | "/users";
+    page: "/" | "/posts" | "/users" | "/users/:userId";
   };
   "./pages/main-page/main-page.tsx": {
     id: "pages/main-page/main-page";
@@ -46,6 +51,10 @@ type RouteFiles = {
   "./pages/users-list-page/users-list-page.tsx": {
     id: "pages/users-list-page/users-list-page";
     page: "/users";
+  };
+  "./pages/user-info-page/user-info-page.tsx": {
+    id: "pages/user-info-page/user-info-page";
+    page: "/users/:userId";
   };
   "./pages/not-found/not-found.tsx": {
     id: "pages/not-found/not-found";

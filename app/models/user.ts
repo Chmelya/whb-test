@@ -6,6 +6,7 @@ export interface User {
 	address: Address;
 	phone: string;
 	website: string;
+	company: Company;
 }
 
 interface Address {
@@ -13,4 +14,10 @@ interface Address {
 	suite: string;
 	city: string;
 	zipcode: string;
+}
+
+export interface Company {
+	name: string;
+	catchPhrase: string;
+	bs: string;
 }

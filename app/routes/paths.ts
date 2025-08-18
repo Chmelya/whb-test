@@ -4,4 +4,5 @@ export const ROUTES = {
 	signUp: '/signUp',
 	posts: '/posts',
 	users: '/users',
+	userInfo: (userId: number) => `/users/${userId}`,
 };

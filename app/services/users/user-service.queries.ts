@@ -7,3 +7,9 @@ export const useUsersQuery = () =>
 		queryKey: ['users'],
 		queryFn: () => UserService.getUsers(),
 	});
+
+export const useUserInfoQuery = (userId: number) =>
+	useQuery<User>({
+		queryKey: ['user', userId],
+		queryFn: () => UserService.getUserInfo(userId),
+	});

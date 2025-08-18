@@ -7,4 +7,9 @@ export class UserService {
 		const res = await apiClient.get<User[]>(ROUTES.users);
 		return res.data;
 	};
+
+	static getUserInfo = async (userId: number) => {
+		const res = await apiClient.get<User>(ROUTES.userInfo(userId));
+		return res.data;
+	};
 }

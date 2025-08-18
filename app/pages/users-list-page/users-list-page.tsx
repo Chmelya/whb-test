@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useUsersQuery } from '../../services/users/user-service.queries';
+import { ROUTES } from '../../routes/paths';
 
 const UsersListPage = () => {
 	const { data: users, isLoading, isError } = useUsersQuery();
@@ -41,7 +42,7 @@ const UsersListPage = () => {
 						key={user.id}
 						divider
 						component={Link}
-						to={`/users/${user.id}`} // Добавьте ссылку на детальную страницу
+						to={ROUTES.userInfo(user.id)}
 						sx={{
 							textDecoration: 'none',
 							color: 'inherit',
