@@ -1,9 +1,4 @@
-import {
-	QueryClient,
-	QueryClientProvider,
-	useQuery,
-} from '@tanstack/react-query';
-import { useEffect } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
 	Links,
 	Meta,
@@ -39,40 +34,3 @@ export default function App() {
 		</QueryClientProvider>
 	);
 }
-
-export const TestQuery = () => {
-	const { data, isLoading, isError } = useQuery({
-		queryKey: ['test'],
-		queryFn: async () => {
-			console.log('Запрос выполняется!');
-			const response = await fetch(
-				'https://jsonplaceholder.typicode.com/posts/1'
-			);
-			return response.json();
-		},
-	});
-
-	useEffect(() => {
-		// Тест базового fetch
-		fetch('https://jsonplaceholder.typicode.com/posts/1')
-			.then((res) => console.log('RAW FETCH:', res.status, res.ok))
-			.catch((err) => console.error('RAW FETCH ERROR:', err));
-
-		// Тест работы Promise
-		new Promise((resolve) => {
-			console.log('PROMISE TEST');
-			resolve('WORKING');
-		}).then(console.log);
-	}, []);
-
-	console.log({ data, isLoading, isError });
-
-	return (
-		<div>
-			<h2>Тест запроса</h2>
-			{isLoading && <p>Загрузка...</p>}
-			{isError && <p>Ошибка!</p>}
-			<pre>{JSON.stringify(data, null, 2)}</pre>
-		</div>
-	);
-};

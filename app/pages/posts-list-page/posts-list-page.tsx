@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import {
 	Box,
 	Typography,
@@ -13,22 +12,14 @@ import {
 	Pagination,
 	Stack,
 } from '@mui/material';
-import { PostsService } from '../../services/post-service';
-import type { Post } from '../../models/post';
+import { usePostsQuery } from '../../services/posts/post-service.queries';
 
 const PostsListPage = () => {
 	const [page, setPage] = useState(1);
 	const [searchTerm, setSearchTerm] = useState('');
 	const postsPerPage = 10;
 
-	const {
-		data: posts,
-		isLoading,
-		isError,
-	} = useQuery<Post[]>({
-		queryKey: ['posts'],
-		queryFn: () => PostsService.getPosts(),
-	});
+	const { data: posts, isLoading, isError } = usePostsQuery();
 
 	if (isLoading) {
 		return (

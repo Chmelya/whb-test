@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Container, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { ROUTES } from '../../routes/paths';
 
 const MainLayout = () => {
 	return (
@@ -26,11 +27,19 @@ const MainLayout = () => {
 						</Typography>
 						<Typography
 							component={Link}
-							to='/posts'
+							to={ROUTES.posts}
 							color='inherit'
 							sx={{ textDecoration: 'none' }}
 						>
 							Posts
+						</Typography>
+						<Typography
+							component={Link}
+							to={ROUTES.users}
+							color='inherit'
+							sx={{ textDecoration: 'none' }}
+						>
+							Users
 						</Typography>
 					</Box>
 				</Toolbar>
